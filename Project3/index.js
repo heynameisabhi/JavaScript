@@ -31,8 +31,18 @@ const quotes=[
 "Create your own sunshine."
 ]
 const getquotes = document.getElementById('quote')
+const usedIndex = new Set()
 function generateQuote(){
+    if(usedIndex.size == quotes.length){
+        usderIndex.clear()
+    }
+    while(true){
     const randInd = Math.floor(Math.random() * quotes.length)
+
+    if(usedIndex.has(randInd)) continue
+
     const quote = quotes[randInd]
     getquotes.innerHTML = quote
-}
+    usedIndex.add(randInd)
+    break
+}}
